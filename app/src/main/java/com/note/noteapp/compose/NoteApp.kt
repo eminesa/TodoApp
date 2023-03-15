@@ -49,19 +49,19 @@ fun SunFlowerNavHost(
         composable("home") {
             HomeScreen(
                 onNoteClick = {
-                    navController.navigate("plantDetail/${it.plantId}")
+                    navController.navigate("noteDetail/${it.noteId}")
                 },
                 onPageChange = onPageChange,
                 onAttached = onAttached
             )
         }
         composable(
-            "plantDetail/{plantId}",
-            arguments = listOf(navArgument("plantId") {
+            "noteDetail/{noteId}",
+            arguments = listOf(navArgument("noteId") {
                 type = NavType.StringType
             })
         ) {
-            /*  PlantDetailsScreen(
+            /*  NoteDetailsScreen(
                   onBackClick = { navController.navigateUp() },
                   onShareClick = {
                       createShareIntent(activity, it)
@@ -72,8 +72,8 @@ fun SunFlowerNavHost(
               ) */
         }
         composable(
-            "gallery/{plantName}",
-            arguments = listOf(navArgument("plantName") {
+            "gallery/{noteName}",
+            arguments = listOf(navArgument("noteName") {
                 type = NavType.StringType
             })
         ) {
@@ -92,9 +92,9 @@ fun SunFlowerNavHost(
 
 // Helper function for calling a share functionality.
 // Should be used when user presses a share button/menu item.
-private fun createShareIntent(activity: Activity, plantName: String) {
+private fun createShareIntent(activity: Activity, noteName: String) {
     val shareText =
-        activity.getString(androidx.appcompat.R.string.abc_action_bar_home_description, plantName)
+        activity.getString(androidx.appcompat.R.string.abc_action_bar_home_description, noteName)
     val shareIntent = ShareCompat.IntentBuilder(activity)
         .setText(shareText)
         .setType("text/plain")

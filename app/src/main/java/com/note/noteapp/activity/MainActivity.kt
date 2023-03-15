@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     private val menuProvider = object : MenuProvider {
         override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-            menuInflater.inflate(R.menu.menu_plant_list, menu)
+            menuInflater.inflate(R.menu.menu_note_list, menu)
         }
 
         override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
